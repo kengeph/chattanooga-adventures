@@ -1,0 +1,27 @@
+name: FTP Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to InfinityFree FTP
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Deploy to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.INFINITY_FTP_HOST }}
+          username: ${{ secrets.INFINITY_FTP_USERNAME }}
+          password: ${{ secrets.INFINITY_FTP_PASSWORD }}
+          server-dir: /chattanooga-adventures.com/htdocs/
+          local-dir: ./
+          protocol: ftp
+          port: 21
+          timeout: 60000
