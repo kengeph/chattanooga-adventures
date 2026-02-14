@@ -1,0 +1,13 @@
+{
+  "projects": {
+    "default": "chattanooga-adventures"
+  },
+  "targets": {
+    "chattanooga-adventures": {
+      "hosting": {
+        "production": ["chattanooga-adventures"],
+        "test": ["chattanooga-adventures-test"]
+      }
+    }
+  }
+}
